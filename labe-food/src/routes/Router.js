@@ -4,6 +4,7 @@ import PaginaPerfil from "../pages/PaginaPerfil/PaginaPerfil";
 import PaginaCadastro from "../pages/PaginaCadastro/PaginaCadastro"
 import PaginaCarrinho from "../pages/PaginaCarrinho/PaginaCarrinho"
 import PaginaHome from "../pages/PaginaHome/PaginaHome"
+import PaginaDetalhes from "../pages/PaginaDetalhes/PaginaDetalhes";
 
 
 export const Router = () => {
@@ -16,6 +17,7 @@ export const Router = () => {
                 <Route path="home/" element={<PaginaHome />} />
                 <Route path="perfil/" element={<PaginaPerfil />} />
                 <Route path="carrinho/" element={<PaginaCarrinho />} />
+                <Route path="detalhes/" element={<PaginaDetalhes/>}/>
                 
             </Routes>
         </BrowserRouter>
