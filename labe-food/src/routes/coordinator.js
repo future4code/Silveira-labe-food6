@@ -16,3 +16,7 @@ export const irParaCarrinho = (navigate) => {
 export const goBack = (navigate) => {
     navigate(-1)
 }
+
+export const irParaDetalhes = (navigate) =>{
+    navigate('/detalhes')
+}
