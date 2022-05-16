@@ -7,9 +7,12 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router />
-      <h1>LABEFOOD</h1>
+      {/* <h1>LABEFOOD</h1> */}
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
+// token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
