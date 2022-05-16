@@ -24,6 +24,8 @@ const PaginaDetalhes = () => {
             </CardMedia>
             <Typography align='center'>
                 <h2>Hamburguer</h2>
+                <p>Pão, carne, quiejo, alface, tomate</p>
+                <p>R$ 20,00</p>
                 <Button color='primary'>Adicionar</Button>
 
             </Typography>
