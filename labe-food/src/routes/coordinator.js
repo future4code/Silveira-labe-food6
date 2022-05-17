@@ -1,3 +1,4 @@
+
 export const irParaLogin = (navigate) => {
     navigate("/")
 }
@@ -20,3 +21,4 @@ export const goBack = (navigate) => {
 export const irParaDetalhes = (navigate) =>{
     navigate('/detalhes')
 }
+
