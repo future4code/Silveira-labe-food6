@@ -7,7 +7,6 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router />
-      <h1>LABEFOOD</h1>
     </ThemeProvider>
   );
 }

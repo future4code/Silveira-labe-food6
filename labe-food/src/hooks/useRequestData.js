@@ -7,7 +7,7 @@ const useRequestData = (initialData, url) => {
     const getData = () => {
         axios.get(url, {
             headers: {
-                Authorization: localStorage.getItem('token')
+                Auth: localStorage.getItem('token')
             }
         })
             .then((res) => {
