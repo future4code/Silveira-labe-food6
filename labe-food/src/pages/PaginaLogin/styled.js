@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 export const App = styled.div`
@@ -34,5 +35,11 @@ export const Button = styled.button`
 `
 
 export const P = styled.p`
-
 `
+
+
+export const Size = styled.img`
+    width: 100px;
+    height: 100px;
+`
+
