@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import { goToFeed} from "../routes/coordinator";
+import { irParaHome} from "../routes/coordinator";
 
 
 const useUnprotectdPage = () => {
@@ -8,7 +8,7 @@ const useUnprotectdPage = () => {
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
-            goToFeed(navigate)
+            irParaHome(navigate)
         }
     },[navigate])
 }
