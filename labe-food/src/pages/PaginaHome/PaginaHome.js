@@ -1,3 +1,7 @@
+
+import React, {useContext} from 'react'
+// import { GlobalStateContext } from "../../global/GlobalStateContext";
+// import { useNavigate } from "react-router-dom";
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import { CardRestaurant } from './CardRestaurant'
@@ -7,11 +11,10 @@ import SelectType from './SelectType'
 
 
 
-
-
-
-
 const PaginaHome = () => {
+  // const { restaurantList } = useContext(GlobalStateContext);
+  // const navigate = useNavigate()
+  //   console.log(restaurantList)
   return (
     <Container>
       <InputSearch id="outlined-basic" label="Outlined" variant="outlined" />

@@ -15,10 +15,10 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
 
-                <Route path="/login" element={<PaginaLogin />} />
+                <Route index element = {<PaginaLogin />} />
                 <Route path="/cadastro" element={<PaginaCadastro />} />
                 <Route path="/endereco" element={<PaginaEndereco />} />
-                <Route index element={<PaginaHome />} />
+                <Route path="/element" element={<PaginaHome />} />
                 <Route path="/perfil" element={<PaginaPerfil />} />
                 <Route path="/carrinho" element={<PaginaCarrinho />} />
                
