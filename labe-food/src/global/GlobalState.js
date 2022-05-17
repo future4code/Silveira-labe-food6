@@ -14,8 +14,7 @@ export default function GlobalState(props) {
             }
         })
             .then((response) => {
-                console.log(response)
-                // setRestaurantList(response.data.results);
+                setRestaurantList(response.data.restaurants);
             })
             .catch((error) => console.log(error.message));
     };
