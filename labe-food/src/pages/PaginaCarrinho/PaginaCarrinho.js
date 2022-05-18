@@ -1,14 +1,12 @@
 import React from 'react'
-import { TelaCarrinho } from '../../global/GlobalStyled';
-import {MainContainer, PagamentosContainer} from "../PaginaCarrinho/styled"
+import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
 import CardEnderecos from './CardEnderecos';
 import FormasDePagamentos from "./FormasDePagamentos"
 import Footer from '../../components/Footer/Footer';
 
 const PaginaCarrinho = () => {
   return (
-    <MainContainer>
-    <TelaCarrinho>
+    <CarrinhoContainer>   
       
         <h2>Meu Carrinho</h2>
         <CardEnderecos/>
@@ -24,8 +22,8 @@ const PaginaCarrinho = () => {
         </PagamentosContainer>
         <Footer/>
                 
-    </TelaCarrinho>
-    </MainContainer>
+    
+    </CarrinhoContainer>
   )
 }
 export default PaginaCarrinho;
