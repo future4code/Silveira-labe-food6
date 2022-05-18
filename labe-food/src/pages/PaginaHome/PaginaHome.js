@@ -14,6 +14,8 @@ const PaginaHome = () => {
   const { restaurantList } = useContext(GlobalStateContext);
   const navigate = useNavigate()
     console.log(restaurantList)
+
+    
   return (
     <Container>
       <InputSearch id="outlined-basic" label="Outlined" variant="outlined" />
