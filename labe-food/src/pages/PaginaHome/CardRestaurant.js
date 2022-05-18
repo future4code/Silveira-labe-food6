@@ -14,31 +14,34 @@ import { useNavigate } from 'react-router-dom';
 export const CardRestaurant = (props) => {
   const navigate = useNavigate()
   
+  
   const onClickCard = (id) => {
     irParaDetalhes(navigate, id)
   }
   return (
-    <Card onClick={() => onClickCard(navigate, props.item.id ) } sx={{ 
+    <Card onClick={() => onClickCard(props.id) } sx={{ 
       width: 300,
       maxWidth: 350 }}>
       <CardMedia
         component="img"
         height="140"
-        image={props.item.logoUrl}
+        image={props.image}
         alt="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {props.item.name}
+          {props.titulo}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.item.description}
+          {props.descricao}
         </Typography>
       </CardContent>
-      <DivFrete>
-        <p>tempo de entrega {props.item.deliveryTime} minutos </p>
-        <p>frete R${props.item.shipping}</p>
-      </DivFrete>
+
+      <divDivFrete>
+        <p>tempo de entrega {props.delivery} minutos </p>
+        <p>frete R${props.frete}</p>
+      </divDivFrete>
+
     </Card>
   );
 }

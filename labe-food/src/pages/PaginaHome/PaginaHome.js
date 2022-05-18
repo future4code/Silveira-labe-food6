@@ -15,19 +15,39 @@ const PaginaHome = () => {
   useProtectPage();
   const { restaurantList } = useContext(GlobalStateContext);
   const navigate = useNavigate()
+
+  const [busca, setBusca] = useState()
+
+  const carRestaurant = restaurantList && restaurantList.map((item) => {
+    return (
+      <CardRestaurant
+        id={item.id}
+        titulo={item.name}
+        descricao={item.description}
+        delivery={item.deliveryTime}
+        frete={item.shipping}
+        image={item.logoUrl}
+
+      />
+    )
+  })
+  const typeRestaurant = restaurantList && restaurantList.map((item) => {
+
   console.log(restaurantList)
   const [busca, setBusca] = useState('')
   const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
 
 
   const typeRestaurant  = restaurantList && restaurantList.map((item) => {
+
     return (
-        <SelectType
+      <SelectType
         item={item}
         tipoDeRestaurante={tipoDeRestaurante}
         setTipoDeRestaurante={setTipoDeRestaurante}
       />
     )
+    console.log(item)
   })
 
   const restaurantFilter = restaurantList && restaurantList.filter((restaurant) =>{
@@ -37,12 +57,19 @@ const PaginaHome = () => {
   return (
     <Container >
       <InputSearch
+
+        id="outlined-basic"
+        label="Outlined"
+        variant="outlined"
+      />
+
        id="outlined-basic"
        label="Outlined"
        variant="outlined"
        value={busca}
        onChange={(e)=>setBusca(e.target.value)}
         />
+
       <Button className='Button' variant="outlined">buscar</Button>
       {typeRestaurant}
       {restaurantFilter && restaurantFilter.map((restaurant)=>
