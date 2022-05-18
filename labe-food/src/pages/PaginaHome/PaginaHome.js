@@ -7,7 +7,7 @@ import { CardRestaurant } from './CardRestaurant';
 import { TextField } from '@material-ui/core';
 import { Container, InputSearch } from './styled';
 import SelectType from './SelectType';
-import { useProtectPage } from '../../routes/coordinator';
+import { irParaDetalhes, useProtectPage } from '../../routes/coordinator';
 
 
 

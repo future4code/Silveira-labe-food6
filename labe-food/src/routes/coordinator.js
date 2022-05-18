@@ -7,6 +7,9 @@ export const irParaLogin = (navigate) => {
 export const irParaCadastro = (navigate) => {
     navigate("/cadastro")
 }
+export const irParaEndereco = (navigate) => {
+    navigate("/endereco")
+}
 export const irParaHome = (navigate) => {
     navigate("/home/")
 }

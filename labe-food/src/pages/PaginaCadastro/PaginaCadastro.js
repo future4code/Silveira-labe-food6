@@ -17,18 +17,18 @@ const PaginaCadastro = () => {
     signup(form, clear, navigate)
   }
 
-  const logged = () => {
-    const token = localStorage.getItem('token');
+  // const logged = () => {
+  //   const token = localStorage.getItem('token');
 
-    if (token) {
-      navigate('/home')
-    }
+  //   if (token) {
+  //     navigate('/home')
+  //   }
 
-  }
+  // }
 
-  useEffect(() => {
-    logged();
-  }, [])
+  // useEffect(() => {
+  //   logged();
+  // }, [])
 
   return (
     <App>
