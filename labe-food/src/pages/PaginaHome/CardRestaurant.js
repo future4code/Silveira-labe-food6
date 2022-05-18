@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {divDivFrete} from './styled'
+import {DivFrete} from './styled'
 import { irParaDetalhes } from '../../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,10 +35,10 @@ export const CardRestaurant = (props) => {
           {props.item.description}
         </Typography>
       </CardContent>
-      <divDivFrete>
+      <DivFrete>
         <p>tempo de entrega {props.item.deliveryTime} minutos </p>
         <p>frete R${props.item.shipping}</p>
-      </divDivFrete>
+      </DivFrete>
     </Card>
   );
 }

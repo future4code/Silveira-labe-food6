@@ -16,26 +16,23 @@ const PaginaHome = () => {
   const { restaurantList } = useContext(GlobalStateContext);
   const navigate = useNavigate()
   console.log(restaurantList)
-  const [busca, setBusca] = useState()
+  const [busca, setBusca] = useState('')
+  const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
 
-  const carRestaurant = restaurantList && restaurantList.map((item) => {
-    return (
-        <CardRestaurant
-       
-        item={item}
-      />
-    )
-  })
+
   const typeRestaurant  = restaurantList && restaurantList.map((item) => {
     return (
         <SelectType
         item={item}
+        tipoDeRestaurante={tipoDeRestaurante}
+        setTipoDeRestaurante={setTipoDeRestaurante}
       />
     )
   })
-  const onClickCard = (id) =>{
-    irParaDetalhes(navigate, id)
-}
+
+  const restaurantFilter = restaurantList && restaurantList.filter((restaurant) =>{
+    return restaurant.name.toLowerCase().includes(busca.toLowerCase()) && ( !tipoDeRestaurante || restaurant.category === tipoDeRestaurante) 
+  })
 
   return (
     <Container >
@@ -43,10 +40,17 @@ const PaginaHome = () => {
        id="outlined-basic"
        label="Outlined"
        variant="outlined"
+       value={busca}
+       onChange={(e)=>setBusca(e.target.value)}
         />
       <Button className='Button' variant="outlined">buscar</Button>
       {typeRestaurant}
-      {carRestaurant}
+      {restaurantFilter && restaurantFilter.map((restaurant)=>
+        {return (
+          <CardRestaurant          
+          item={restaurant}
+        />
+      )})}
     </Container>
   )
 }
