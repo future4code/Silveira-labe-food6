@@ -21,7 +21,7 @@ export const Router = () => {
                 <Route path="/home" element={<PaginaHome />} />
                 <Route path="/perfil" element={<PaginaPerfil />} />
                 <Route path="/carrinho" element={<PaginaCarrinho />} />
-               
+               <Route path="/detalhes" element={<PaginaDetalhes/>}/>
             </Routes>
         </BrowserRouter>
     )
