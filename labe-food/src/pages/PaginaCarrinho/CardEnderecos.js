@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { GlobalStateContext } from '../../global/GlobalStateContext';
 import {EnderecoUsuario, EnderecoRestaurante} from "./styled"
 
 const CardEnderecos = () => {
+    const { addressUser } = useContext(GlobalStateContext);
+    
     return (
         <div>
             <EnderecoUsuario>
                 <p>Endereço de entrega</p>
-                <p>Rua Alessandra Vieira, 42</p>
+                <p>{addressUser.street}, {addressUser.number}</p>
             </EnderecoUsuario>
             <EnderecoRestaurante>
                 <p>Burguer Vila Madalena</p>
