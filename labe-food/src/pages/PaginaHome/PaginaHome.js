@@ -14,33 +14,21 @@ import { useProtectPage } from '../../routes/coordinator';
 const PaginaHome = () => {
   useProtectPage();
   const { restaurantList } = useContext(GlobalStateContext);
-  const navigate = useNavigate()
-
-  const [busca, setBusca] = useState()
-
-  const carRestaurant = restaurantList && restaurantList.map((item) => {
-    return (
-      <CardRestaurant
-        id={item.id}
-        titulo={item.name}
-        descricao={item.description}
-        delivery={item.deliveryTime}
-        frete={item.shipping}
-        image={item.logoUrl}
-
-      />
-    )
-  })
-  const typeRestaurant = restaurantList && restaurantList.map((item) => {
-
-  console.log(restaurantList)
   const [busca, setBusca] = useState('')
   const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
+  const navigate = useNavigate()
+  
 
-
-  const typeRestaurant  = restaurantList && restaurantList.map((item) => {
-
+  const cardRestaurant = restaurantList && restaurantList.map((item) => {
     return (
+      <CardRestaurant
+        item={item}
+      />
+    )
+  })  
+  
+  const typeRestaurant  = restaurantList && restaurantList.map((item) => {
+      return (
       <SelectType
         item={item}
         tipoDeRestaurante={tipoDeRestaurante}
@@ -62,16 +50,17 @@ const PaginaHome = () => {
         label="Outlined"
         variant="outlined"
       />
-
+        {/* <InputSearch
        id="outlined-basic"
        label="Outlined"
        variant="outlined"
        value={busca}
        onChange={(e)=>setBusca(e.target.value)}
-        />
+        /> */}
 
       <Button className='Button' variant="outlined">buscar</Button>
       {typeRestaurant}
+
       {restaurantFilter && restaurantFilter.map((restaurant)=>
         {return (
           <CardRestaurant          
