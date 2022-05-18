@@ -19,27 +19,27 @@ export const CardRestaurant = (props) => {
     irParaDetalhes(navigate, id)
   }
   return (
-    <Card onClick={() => onClickCard(props.id) } sx={{ 
+    <Card onClick={() => onClickCard(props.item.id) } sx={{ 
       width: 300,
       maxWidth: 350 }}>
       <CardMedia
         component="img"
         height="140"
-        image={props.image}
+        image={props.item.logoUrl}
         alt="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {props.titulo}
+          {props.item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.descricao}
+          {props.item.description}
         </Typography>
       </CardContent>
 
       <divDivFrete>
-        <p>tempo de entrega {props.delivery} minutos </p>
-        <p>frete R${props.frete}</p>
+        <p>tempo de entrega {props.item.deliveryTime} minutos </p>
+        <p>frete R${props.item.shipping}</p>
       </divDivFrete>
 
     </Card>

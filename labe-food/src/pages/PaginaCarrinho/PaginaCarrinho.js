@@ -2,17 +2,17 @@
 import React, {useContext} from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
-import { PagamentosContainer, CarrinhoContainer } from "../PaginaCarrinho/styled"
 import CardEnderecos from './CardEnderecos';
 import FormasDePagamentos from "./FormasDePagamentos"
 import Footer from '../../components/Footer/Footer';
 import { useProtectPage } from '../../routes/coordinator';
 
 const PaginaCarrinho = () => {
+  useProtectPage();
 
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
 
-  useProtectPage();
+  
 
   return (
     <CarrinhoContainer>

@@ -12,13 +12,14 @@ export default function GlobalState(props) {
     const [productAdd, setProductAdd] = useState([]);
 
     const getRestaurantList = () => {//pega a lista de restaurantes da API
+        
         axios.get(`${BASE_URL}/restaurants`, {
             headers: {
                 Auth: localStorage.getItem('token')
             }
         }).then((response) => {
             setRestaurantList(response.data.restaurants);
-        }).catch((error) => console.log(error.message));
+        }).catch((error) => console.log(error));
     };
     useEffect(() => {
         getRestaurantList();
