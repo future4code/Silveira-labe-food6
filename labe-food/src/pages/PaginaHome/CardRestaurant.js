@@ -6,10 +6,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {divDivFrete} from './styled'
+import { irParaDetalhes } from '../../routes/coordinator';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export const CardRestaurant = (props) => {
+  const navigate = useNavigate()
+  
+  const onClickCard = (id) => {
+    irParaDetalhes(navigate, id)
+  }
   return (
-    <Card sx={{ 
+    <Card onClick={() => onClickCard(navigate, props.item.id ) } sx={{ 
       width: 300,
       maxWidth: 350 }}>
       <CardMedia

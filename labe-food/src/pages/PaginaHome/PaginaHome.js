@@ -21,6 +21,7 @@ const PaginaHome = () => {
   const carRestaurant = restaurantList && restaurantList.map((item) => {
     return (
         <CardRestaurant
+       
         item={item}
       />
     )
@@ -32,10 +33,12 @@ const PaginaHome = () => {
       />
     )
   })
-
+  const onClickCard = (id) =>{
+    irParaDetalhes(navigate, id)
+}
 
   return (
-    <Container>
+    <Container >
       <InputSearch
        id="outlined-basic"
        label="Outlined"
