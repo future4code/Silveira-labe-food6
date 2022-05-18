@@ -16,7 +16,7 @@ const useRequestData = (initialData, url) => {
             })
             .catch((err) => {
                 console.log(err)
-                alert("Ocorreu um erro")
+                alert(err)
             })
     }
     useEffect(() => {

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
 import CardEnderecos from './CardEnderecos';
 import FormasDePagamentos from "./FormasDePagamentos"
 import Footer from '../../components/Footer/Footer';
 
 const PaginaCarrinho = () => {
+  const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+
+  
   return (
     <CarrinhoContainer>   
       
@@ -27,3 +31,8 @@ const PaginaCarrinho = () => {
   )
 }
 export default PaginaCarrinho;
+
+
+
+
+

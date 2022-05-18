@@ -13,32 +13,38 @@ import SelectType from './SelectType'
 const PaginaHome = () => {
   const { restaurantList } = useContext(GlobalStateContext);
   const navigate = useNavigate()
-  console.log(restaurantList)
   const [busca, setBusca] = useState()
 
   const carRestaurant = restaurantList && restaurantList.map((item) => {
     return (
-        <CardRestaurant
-        item={item}
+      <CardRestaurant
+        id={item.id}
+        titulo={item.name}
+        descricao={item.description}
+        delivery={item.deliveryTime}
+        frete={item.shipping}
+        image={item.logoUrl}
+
       />
     )
   })
-  const typeRestaurant  = restaurantList && restaurantList.map((item) => {
+  const typeRestaurant = restaurantList && restaurantList.map((item) => {
     return (
-        <SelectType
+      <SelectType
         item={item}
       />
     )
+    console.log(item)
   })
 
 
   return (
     <Container>
       <InputSearch
-       id="outlined-basic"
-       label="Outlined"
-       variant="outlined"
-        />
+        id="outlined-basic"
+        label="Outlined"
+        variant="outlined"
+      />
       <Button className='Button' variant="outlined">buscar</Button>
       {typeRestaurant}
       {carRestaurant}

@@ -9,8 +9,7 @@ export default function GlobalState(props) {
     const [addressUser, setAddressUser] = useState([]);
     const [orderHistory, setOrderHistory] = useState([]);
     const [activeOrder, setActiveOrder] = useState([]);
-  
-    console.log(activeOrder)
+    const [productAdd, setProductAdd] = useState([]);
 
     const getRestaurantList = () => {//pega a lista de restaurantes da API
         axios.get(`${BASE_URL}/restaurants`, {
@@ -40,7 +39,7 @@ export default function GlobalState(props) {
     const getOrderHistory = () => {//pega a historico de pedidos do usuario
         axios.get(`${BASE_URL}/orders/history`, {
             headers: {
-                Auth: localStorage.getItem('token') 
+                Auth: localStorage.getItem('token')
             }
         }).then((response) => {
             setOrderHistory(response.data.orders);
@@ -53,7 +52,7 @@ export default function GlobalState(props) {
     const getActiveOrder = () => {//pega pedido ativo do usuario
         axios.get(`${BASE_URL}/active-order`, {
             headers: {
-                Auth: localStorage.getItem('token') 
+                Auth: localStorage.getItem('token')
             }
         }).then((response) => {
             setActiveOrder(response.data.order);
@@ -71,7 +70,9 @@ export default function GlobalState(props) {
         orderHistory,
         setOrderHistory,
         activeOrder,
-        setActiveOrder
+        setActiveOrder,
+        productAdd,
+        setProductAdd
     };
 
     return (
