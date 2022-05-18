@@ -7,6 +7,7 @@ import { CardRestaurant } from './CardRestaurant'
 import { TextField } from '@material-ui/core'
 import { Container, InputSearch } from './styled'
 import SelectType from './SelectType'
+import { irParaDetalhes } from '../../routes/coordinator';
 
 
 
@@ -19,6 +20,7 @@ const PaginaHome = () => {
   const carRestaurant = restaurantList && restaurantList.map((item) => {
     return (
         <CardRestaurant
+       
         item={item}
       />
     )
@@ -30,10 +32,12 @@ const PaginaHome = () => {
       />
     )
   })
-
+  const onClickCard = (id) =>{
+    irParaDetalhes(navigate, id)
+}
 
   return (
-    <Container>
+    <Container >
       <InputSearch
        id="outlined-basic"
        label="Outlined"

@@ -24,7 +24,6 @@ export const Router = () => {
                 <Route path="/detalhes/:id" element={<PaginaDetalhes />} />
 
 
-               
             </Routes>
         </BrowserRouter>
     )
