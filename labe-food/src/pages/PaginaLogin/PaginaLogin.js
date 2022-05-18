@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { App, Logo, DivForm, DivLogo, Button, P } from './styled'
 import LogoVermelha from '../.././assets/logo-vermelha.png';
 import TextField from '@material-ui/core/TextField';
@@ -15,6 +15,22 @@ const PaginaLogin = () => {
     event.preventDefault();
     login(form, clear, navigate)
   }
+
+
+  const logged = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      navigate('/home')
+    }
+
+  }
+
+  useEffect(() => {
+    logged();
+  }, [])
+
+
 
   return (
     <App>
