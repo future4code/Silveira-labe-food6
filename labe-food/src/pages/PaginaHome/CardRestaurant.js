@@ -5,8 +5,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {divDivFrete} from './styled'
 
-export const CardRestaurant = () => {
+export const CardRestaurant = (props) => {
   return (
     <Card sx={{ 
       width: 300,
@@ -14,21 +15,21 @@ export const CardRestaurant = () => {
       <CardMedia
         component="img"
         height="140"
-        image="https://i.redd.it/7zdkf48ktk371.jpg"
+        image={props.item.logoUrl}
         alt="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Restaurante
+          {props.item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          paz na batata
+          {props.item.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <p>30 - 60 min </p>
-        <p>frete R$6,00</p>
-      </CardActions>
+      <divDivFrete>
+        <p>tempo de entrega {props.item.deliveryTime} minutos </p>
+        <p>frete R${props.item.shipping}</p>
+      </divDivFrete>
     </Card>
   );
 }

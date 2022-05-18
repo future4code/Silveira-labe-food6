@@ -2,21 +2,10 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 
 
-const SelectType = () => {
+const SelectType = (props) => {
   return (
     <div>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
-      <Button variant="outlined">nome</Button>
+      <Button variant="outlined">{props.item.category}</Button>
     </div>
   )
 }

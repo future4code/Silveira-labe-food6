@@ -9,3 +9,8 @@ export const Container = styled.div`
 export const InputSearch = styled(TextField)`
     width: 200px;
 `
+export const DivFrete = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+`
