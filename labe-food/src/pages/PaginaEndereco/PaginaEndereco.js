@@ -5,9 +5,11 @@ import { App, Hr, Back, DivLogo, DivForm, Button } from './styled';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { addres } from '../../services/users';
+import {useProtectPage} from '../../routes/coordinator';
 
 
 const PaginaCadastro = () => {
+  useProtectPage();
   const [form, onChange, clear] = useForm({ street: "", number: "", neighbourhood: "", city: "", state: "", complement: "" })
   const navigate = useNavigate();
 

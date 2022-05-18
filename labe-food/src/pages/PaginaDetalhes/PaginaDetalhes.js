@@ -1,12 +1,15 @@
-import React from 'react'
-import { CardActionArea } from '@material-ui/core'
-import { CardMedia } from '@material-ui/core'
-import { Typography } from '@material-ui/core'
-import { Button } from '@material-ui/core'
-import Image from '../../img/download.jpg'
-import { RecipeCardContainer } from './styled'
+import React from 'react';
+import { CardActionArea } from '@material-ui/core';
+import { CardMedia } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import Image from '../../img/download.jpg';
+import { RecipeCardContainer } from './styled';
+import { useProtectPage } from '../../routes/coordinator';
 
 const PaginaDetalhes = () => {
+  useProtectPage();
+
   return (<div> PaginaDetalhes
         
         <RecipeCardContainer>

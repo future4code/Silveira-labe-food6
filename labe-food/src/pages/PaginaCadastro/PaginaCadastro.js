@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
 import Backward from '../../assets/back.png';
@@ -16,6 +16,19 @@ const PaginaCadastro = () => {
     event.preventDefault();
     signup(form, clear, navigate)
   }
+
+  const logged = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      navigate('/home')
+    }
+
+  }
+
+  useEffect(() => {
+    logged();
+  }, [])
 
   return (
     <App>

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export const irParaLogin = (navigate) => {
     navigate("/")
@@ -17,8 +19,19 @@ export const irParaCarrinho = (navigate) => {
 export const goBack = (navigate) => {
     navigate(-1)
 }
-
 export const irParaDetalhes = (navigate,id) =>{
     navigate(`/detalhes/${id}`)
+
 }
 
+export const useProtectPage = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (token === null) {
+            navigate('/login')
+        }
+    })
+} 
