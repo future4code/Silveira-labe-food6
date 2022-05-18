@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
 import Backward from '../../assets/back.png';
 import { App, Hr, Back, Logo, DivLogo, DivForm, Button } from './styled';
 import { useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import { signup } from '../../services/users';
 
 const PaginaCadastro = () => {
+  const [form, onChange, clear] = useForm({ name: "", email: "", cpf: "", password: "", })
   const navigate = useNavigate();
 
 
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    signup(form, clear, navigate)
+  }
 
+  const logged = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      navigate('/home')
+    }
+
+  }
+
+  useEffect(() => {
+    logged();
+  }, [])
 
   return (
     <App>
@@ -20,12 +39,71 @@ const PaginaCadastro = () => {
       </DivLogo>
       <h3>Cadastrar</h3>
       <DivForm>
-        <form>
-          <TextField id="outlined-basic" label="Nome" margin='dense' fullWidth variant="outlined" />
-          <TextField id="outlined-basic" label="E-mail" margin='dense' fullWidth variant="outlined" />
-          <TextField id="outlined-basic" label="CPF" margin='dense' fullWidth variant="outlined" />
-          <TextField id="outlined-basic" label="Senha" margin='dense' fullWidth variant="outlined" />
-          <TextField id="outlined-basic" label="Confirmar Senha" margin='dense' fullWidth variant="outlined" />
+        <form onSubmit={onSubmitForm}>
+          <TextField
+            name={"name"}
+            value={form.name}
+            onChange={onChange}
+            id="outlined-basic"
+            label="Nome"
+            margin='dense'
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            required
+            variant="outlined"
+            placeholder='Nome e sobrenome'
+          />
+          <TextField
+            name={"email"}
+            value={form.email}
+            onChange={onChange}
+            id="outlined-basic"
+            label="E-mail"
+            margin='dense'
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            required
+            variant="outlined"
+            placeholder='email@email.com'
+          />
+          <TextField
+            name={"cpf"}
+            value={form.cpf}
+            onChange={onChange}
+            id="outlined-basic"
+            label="CPF"
+            margin='dense'
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            required
+            variant="outlined"
+            placeholder='000.000.000-00'
+          />
+          <TextField
+            name={"password"}
+            value={form.password}
+            onChange={onChange}
+            id="outlined-basic"
+            label="Senha"
+            margin='dense'
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            required
+            variant="outlined"
+            placeholder='Mínimo 6 caracteres'
+          />
+          {/* <TextField
+            name={"password"}
+            value={form.password}
+            onChange={onChange}
+            id="outlined-basic"
+            label="Confirmar Senha"
+            margin='dense'
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            variant="outlined"
+            placeholder='Confirme a senha anterior'
+          /> */}
           <Button><strong>Criar</strong></Button>
         </form>
       </DivForm>
