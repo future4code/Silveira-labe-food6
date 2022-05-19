@@ -9,15 +9,15 @@ import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
 import { StyledButton } from "../../global/GlobalStyled"
+import Footer from '../../components/Footer/Footer';
 
 
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
-  // console.log(restaurant.restaurant && restaurant.restaurant)
-  console.log(restaurant)
-  console.log(productAdd)
+  console.log(restaurant.restaurant && restaurant.restaurant)
+ 
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (
@@ -49,6 +49,7 @@ const PaginaDetalhes = () => {
   return (
 
     <RecipeCardContainer>
+      <Footer/>
       {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
 
         <CardMedia component={'img'} alt={'imagem'}
@@ -60,7 +61,7 @@ const PaginaDetalhes = () => {
           <p> {restaurant.restaurant.address}</p>
         </Typography>
 
-      </CardActionArea>}
+      </CardActionArea>}      
       {MenuRestaurant}
 
     </RecipeCardContainer>

@@ -10,6 +10,7 @@ export default function GlobalState(props) {
     const [orderHistory, setOrderHistory] = useState([]);
     const [activeOrder, setActiveOrder] = useState([]);
     const [productAdd, setProductAdd] = useState([]);
+    
 
     const getRestaurantList = () => {//pega a lista de restaurantes da API
         

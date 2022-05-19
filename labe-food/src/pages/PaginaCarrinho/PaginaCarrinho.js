@@ -2,26 +2,25 @@
 import React, {useContext} from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
-import CardEnderecos from './CardEnderecos';
 import FormasDePagamentos from "./FormasDePagamentos"
 import Footer from '../../components/Footer/Footer';
 import { useProtectPage } from '../../routes/coordinator';
+import CardEnderecos from '../../components/CardEnderecos/CardEnderecos';
+import CardProdutoAdded from "../../components/CardProdutoAdded/CardProdutoAdded"
 
 const PaginaCarrinho = () => {
   useProtectPage();
+  // const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+  // console.log(productAdd)
 
-  const { productAdd, setProductAdd } = useContext(GlobalStateContext);
 
-  
 
   return (
     <CarrinhoContainer>
 
       <h2>Meu Carrinho</h2>
       <CardEnderecos />
-      <div>
-        Cards de produtos Adicionados
-      </div>
+      <CardProdutoAdded/>
       <div>
         Frete R$6,00
         SUBTOTAL R$ 67,00
