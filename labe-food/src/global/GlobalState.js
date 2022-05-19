@@ -10,61 +10,61 @@ export default function GlobalState(props) {
     const [orderHistory, setOrderHistory] = useState([]);
     const [activeOrder, setActiveOrder] = useState([]);
     const [productAdd, setProductAdd] = useState([]);
-    
+    const [userStats, setUserStats] = useState([]);
+
+    const headers = {
+        headers: {
+            Auth: localStorage.getItem('token')
+        }
+    }
+
+    const getProfile = () => {
+        axios.get(`${BASE_URL}/profile`, headers)
+            .then((response) => {
+                setUserStats(response.data.user);
+            }).catch((error) => console.log(error));
+    }
 
     const getRestaurantList = () => {//pega a lista de restaurantes da API
-        
-        axios.get(`${BASE_URL}/restaurants`, {
-            headers: {
-                Auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
-            setRestaurantList(response.data.restaurants);
-        }).catch((error) => console.log(error));
+
+        axios.get(`${BASE_URL}/restaurants`, headers)
+            .then((response) => {
+                setRestaurantList(response.data.restaurants);
+            }).catch((error) => console.log(error));
     };
-    useEffect(() => {
-        getRestaurantList();
-    }, []);
 
     const getAddressUser = () => {//pega endereço do usuario
-        axios.get(`${BASE_URL}/profile/address`, {
-            headers: {
-                Auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
-            setAddressUser(response.data.address);
-        }).catch((error) => console.log(error.message));
+        axios.get(`${BASE_URL}/profile/address`, headers)
+            .then((response) => {
+                setAddressUser(response.data.address);
+            }).catch((error) => console.log(error.message));
     };
-    useEffect(() => {
-        getAddressUser();
-    }, []);
+
     const getOrderHistory = () => {//pega a historico de pedidos do usuario
-        axios.get(`${BASE_URL}/orders/history`, {
-            headers: {
-                Auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
-            setOrderHistory(response.data.orders);
-        }).catch((error) => console.log(error.message));
+        axios.get(`${BASE_URL}/orders/history`, headers)
+            .then((response) => {
+                setOrderHistory(response.data.orders);
+            }).catch((error) => console.log(error.message));
     };
-    useEffect(() => {
-        getOrderHistory();
-    }, []);
 
     const getActiveOrder = () => {//pega pedido ativo do usuario
-        axios.get(`${BASE_URL}/active-order`, {
-            headers: {
-                Auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
-            setActiveOrder(response.data.order);
-        }).catch((error) => console.log(error.message));
+        axios.get(`${BASE_URL}/active-order`, headers)
+            .then((response) => {
+                setActiveOrder(response.data.order);
+            }).catch((error) => console.log(error.message));
     };
+
     useEffect(() => {
+        getRestaurantList();
+        getAddressUser();
+        getOrderHistory();
         getActiveOrder();
+        getProfile();
     }, []);
 
     const data = {
+        userStats,
+        setUserStats,
         restaurantList,
         setRestaurantList,
         addressUser,
