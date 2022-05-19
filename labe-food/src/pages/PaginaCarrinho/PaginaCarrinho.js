@@ -8,9 +8,12 @@ import { useProtectPage } from '../../routes/coordinator';
 import CardEnderecos from '../../components/CardEnderecos/CardEnderecos';
 import CardProdutoAdded from "../../components/CardProdutoAdded/CardProdutoAdded"
 
-const PaginaCarrinho = () => {
+
+const PaginaCarrinho = (props) => {
   useProtectPage();
-  // const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+  const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
+  console.log(restaurant.restaurant && restaurant.restaurant)
+    // const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   // console.log(productAdd)
 
 
