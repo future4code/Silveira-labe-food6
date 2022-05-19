@@ -12,6 +12,7 @@ export default function GlobalState(props) {
     const [activeOrder, setActiveOrder] = useState([]);
     const [productAdd, setProductAdd] = useState([]);
     const [userStats, setUserStats] = useState([]);
+    const [currentRestaurant, setCurrentRestaurant] = useState({});
     const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
 
     const headers = {
@@ -19,6 +20,17 @@ export default function GlobalState(props) {
             Auth: localStorage.getItem('token')
         }
     }
+
+
+
+    // const setRest = (rest) => {
+    //     axios.get(`${BASE_URL}/restaurants/${rest}`, headers)
+    //     .then((res) => {
+    //         setCurrentRestaurant(res)
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+    // }
 
     const getProfile = () => {
         axios.get(`${BASE_URL}/profile`, headers)
@@ -77,6 +89,8 @@ export default function GlobalState(props) {
         setActiveOrder,
         productAdd,
         setProductAdd,
+        currentRestaurant,
+        setCurrentRestaurant
         restaurant,
     };
 

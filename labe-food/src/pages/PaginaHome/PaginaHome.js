@@ -18,12 +18,17 @@ const PaginaHome = () => {
   const [busca, setBusca] = useState('')
   const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
   const navigate = useNavigate()
+  const {currentRestaurant, setCurrentRestaurant} = useContext(GlobalStateContext)
 
+  const setRest = (rest) => {
+    setCurrentRestaurant(rest)
+  }
 
   const cardRestaurant = restaurantList && restaurantList.map((item) => {
     return (
       <CardRestaurant
         item={item}
+        setRest={setRest}
       />
     )
   })

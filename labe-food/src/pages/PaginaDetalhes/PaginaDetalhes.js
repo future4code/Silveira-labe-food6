@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CardActionArea } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
@@ -14,9 +14,14 @@ import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
- 
-  console.log(restaurant.restaurant && restaurant.restaurant)
- 
+  const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
+  const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
+
+
+  useEffect(() => {
+    setCurrentRestaurant(restaurant.restaurant)
+  }, [restaurant])
+  
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (<Place key={comida.id}>
@@ -67,7 +72,8 @@ const PaginaDetalhes = () => {
    }
 		
       	
-  }  
+  }
+
 
   return (
       <div>
