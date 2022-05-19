@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+// import { Place } from '@material-ui/icons'
 
 export const RecipeCardContainer = styled(Card)`
   width: 250px;
-  margin: 10px;
+  margin: 0 auto;
+
 `
 
 export const RecipeCardContent = styled(CardContent)`
@@ -12,4 +14,20 @@ export const RecipeCardContent = styled(CardContent)`
   align-items: center;
   justify-content: center;
   height: 40px;
+  padding: 10px;
+  border: 1px solid gray;
+  
+`
+export const Place = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+padding: 30px;
+`
+export const Borda = styled.div`
+ 
+
+  border: 1px solid gray;
+  
 `
