@@ -4,6 +4,9 @@ import {EnderecoUsuario, EnderecoRestaurante} from "./styled"
 
 const CardEnderecos = () => {
     const { addressUser } = useContext(GlobalStateContext);
+    // const [ productAdd, setProductAdd ] = useContext(GlobalStateContext);
+    // console.log(productAdd)
+    
     
     return (
         <div>
