@@ -41,7 +41,7 @@ const PaginaHome = () => {
         setTipoDeRestaurante={setTipoDeRestaurante}
       />
     )
-    console.log(item)
+    
   })
 
   const restaurantFilter = restaurantList && restaurantList.filter((restaurant) => {

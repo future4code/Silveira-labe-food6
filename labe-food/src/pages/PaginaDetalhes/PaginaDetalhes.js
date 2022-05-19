@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
 import { StyledButton } from "../../global/GlobalStyled"
-
+import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
 
 const PaginaDetalhes = () => {
   const params = useParams()
@@ -21,7 +21,7 @@ const PaginaDetalhes = () => {
   useEffect(() => {
     setCurrentRestaurant(restaurant.restaurant)
   }, [restaurant])
-
+  
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (<Place key={comida.id}>
@@ -42,7 +42,16 @@ const PaginaDetalhes = () => {
       
       </Place>
     )
+  })
 
+  const DetalhesRestaurante = restaurant.restaurant && restaurant.restaurant.map((item) => {
+      return (
+        <PaginaCarrinho
+        endereco={item.address}
+        nome={item.name}
+        tempo={item.deliveryTime}
+        />
+      )
   })
 
   const adicionarProduto = (comida) => {
@@ -69,7 +78,7 @@ const PaginaDetalhes = () => {
   return (
       <div>
     <RecipeCardContainer>
-      <Footer/>
+      
       {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
       
         <CardMedia component={'img'} alt={'imagem'}
