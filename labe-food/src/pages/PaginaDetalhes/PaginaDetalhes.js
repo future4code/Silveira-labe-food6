@@ -14,8 +14,16 @@ import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+  const [restaurant, getRestaurant] = useRequestData({},`${BASE_URL}/restaurants/${params.id}`)
+
  
   console.log(restaurant.restaurant && restaurant.restaurant)
+
+  const AtualizarRestaurante = () => {
+    setProductAdd(restaurant)
+      
+  } 
+
  
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
@@ -39,15 +47,15 @@ const PaginaDetalhes = () => {
     )
   })
 
-  const DetalhesRestaurante = restaurant.restaurant && restaurant.restaurant.map((item) => {
-      return (
-        <PaginaCarrinho
-        endereco={item.address}
-        nome={item.name}
-        tempo={item.deliveryTime}
-        />
-      )
-  })
+  // const DetalhesRestaurante = restaurant.restaurant && restaurant.restaurant.map((item) => {
+  //     return (
+  //       <PaginaCarrinho
+  //       endereco={item.address}
+  //       nome={item.name}
+  //       tempo={item.deliveryTime}
+  //       />
+  //     )
+  // })
 
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")

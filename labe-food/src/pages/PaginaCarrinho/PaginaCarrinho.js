@@ -11,8 +11,7 @@ import CardProdutoAdded from "../../components/CardProdutoAdded/CardProdutoAdded
 
 const PaginaCarrinho = (props) => {
   useProtectPage();
-  const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
-  console.log(restaurant.restaurant && restaurant.restaurant)
+  console.log(props)
     // const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   // console.log(productAdd)
 
