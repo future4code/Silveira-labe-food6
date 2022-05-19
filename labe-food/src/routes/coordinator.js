@@ -23,7 +23,6 @@ export const irParaDetalhes = (navigate,id) =>{
     navigate(`/detalhes/${id}`)
 
 }
-
 export const useProtectPage = () => {
     const navigate = useNavigate();
 

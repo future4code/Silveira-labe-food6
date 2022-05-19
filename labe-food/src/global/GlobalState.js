@@ -2,6 +2,7 @@ import { GlobalStateContext } from "./GlobalStateContext";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
+import useRequestData from "../hooks/useRequestData";
 
 
 export default function GlobalState(props) {
@@ -11,6 +12,7 @@ export default function GlobalState(props) {
     const [activeOrder, setActiveOrder] = useState([]);
     const [productAdd, setProductAdd] = useState([]);
     const [userStats, setUserStats] = useState([]);
+    const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
 
     const headers = {
         headers: {
@@ -74,7 +76,8 @@ export default function GlobalState(props) {
         activeOrder,
         setActiveOrder,
         productAdd,
-        setProductAdd
+        setProductAdd,
+        restaurant,
     };
 
     return (
