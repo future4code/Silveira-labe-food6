@@ -33,7 +33,7 @@ const PaginaCadastro = () => {
   return (
     <App>
       <DivLogo>
-        <Back onClick={() => navigate("/login")} src={Backward} />
+        <Back onClick={() => navigate("/")} src={Backward} />
         <Hr></Hr>
         <Logo src={LogoVermelha} />
       </DivLogo>
