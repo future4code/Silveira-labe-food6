@@ -26,9 +26,9 @@ align-items: center;
 justify-content: space-between;
 padding: 30px;
 `
-export const Borda = styled.div`
- 
-
-  border: 1px solid gray;
+export const DivFooter = styled.div`
+ position: fixed;
+ width: 100%;
+ bottom: 0;
   
 `
