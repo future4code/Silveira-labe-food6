@@ -48,7 +48,7 @@ const PaginaDetalhes = () => {
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
    const indexProdutos = productAdd.findIndex((i) =>{
-     return i.id = comida.id 
+     return i.id === comida.id 
      
 
    })

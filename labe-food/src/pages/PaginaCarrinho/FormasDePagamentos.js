@@ -10,7 +10,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 export default function RadioButtonsGroup() {
   const { paymentMethod, setPaymentMethod } = useContext(GlobalStateContext);
-    
+ 
 
   const handleChange = (event) => {
     setPaymentMethod(event.target.value);
