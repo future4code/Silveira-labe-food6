@@ -4,6 +4,7 @@ export const App = styled.div`
     width: 100vw;
     height: 100vh;
     text-align: center;
+    
 `
 
 export const Back = styled.img`
