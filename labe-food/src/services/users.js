@@ -13,7 +13,6 @@ export const login = (body, clear, navigate) => {
             
         })
         .catch((err) => {
-
             alert(err.response.data.message)
             console.log(err)            
         })

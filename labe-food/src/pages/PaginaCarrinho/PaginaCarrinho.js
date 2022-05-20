@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer, InfoContainer, ButtonRemove, Content } from "../PaginaCarrinho/styled"
+import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer, InfoContainer, ButtonRemove, Content, DivFooter } from "../PaginaCarrinho/styled"
 import { StyledButton } from "../../global/GlobalStyled"
 import FormasDePagamentos from "./FormasDePagamentos"
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -99,14 +99,16 @@ const PaginaCarrinho = () => {
 
       <h2>Carrinho de Compras</h2>
       <CardEnderecos />
-      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <ShoppingCartOutlinedIcon/>}
+      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <p>Carrinho Vazio <ShoppingCartOutlinedIcon/></p>  }
       <p>Frete R$ {currentRestaurant.shipping}</p>
       <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>
         <FormasDePagamentos />
       </PagamentosContainer>
       <StyledButton color='primary' variant="contained" onClick={gerarPedido} >Gerar Pedido</StyledButton>
+      <DivFooter>
       <Footer />
+      </DivFooter>
 
     </CarrinhoContainer>
   )

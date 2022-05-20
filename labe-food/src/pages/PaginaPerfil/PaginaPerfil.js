@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { useProtectPage } from '../../routes/coordinator';
+import { irParaCadastro, useProtectPage } from '../../routes/coordinator';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { App, Hr, DivLogo, EditUser, DivUserStats, EditAddress, DivUserAddress, Hr2, DivFooter, CardHistory } from './styled';
 import EditIcon from '../../assets/edit.png';
 import Footer from '../../components/Footer/Footer'
+import { useNavigate } from 'react-router-dom';
 
 
 const PaginaPerfil = () => {
@@ -11,6 +12,7 @@ const PaginaPerfil = () => {
   const { addressUser } = useContext(GlobalStateContext);
   const { userStats } = useContext(GlobalStateContext);
   const { orderHistory, getOrderHistory } = useContext(GlobalStateContext);
+  const navigate = useNavigate()
 
   const setRest = (rest) => {
     getOrderHistory(rest)
@@ -45,7 +47,7 @@ const PaginaPerfil = () => {
           <h4>Endereço Cadastrado</h4>
           <p>{`${addressUser.street}, ${addressUser.number} - ${addressUser.city}`}</p>
         </DivUserAddress>
-        <img src={EditIcon} />
+        <img src={EditIcon} onClick={() => irParaCadastro(navigate) } />
       </EditAddress>
       <h4>Histórico de pedidos</h4>
       <Hr2></Hr2>
