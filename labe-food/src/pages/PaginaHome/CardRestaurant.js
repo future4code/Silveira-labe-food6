@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import { CardEstilizado, DivFrete } from './styled'
 import { irParaDetalhes } from '../../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
-import { GlobalStateContext } from "../../global/GlobalStateContext";
 
 
 
@@ -19,15 +18,14 @@ export const CardRestaurant = (props) => {
   const onClickCard = (id) => {
     irParaDetalhes(navigate, id)
   }
-
-
   return (
-    <div>
+  
       <CardEstilizado onClick={() => onClickCard(props.item.id)} sx={{
         width: 300,
         maxWidth: 350
       }}>
         <CardMedia
+          key={props.item.id}
           component="img"
           height="140"
           image={props.item.logoUrl}
@@ -37,7 +35,7 @@ export const CardRestaurant = (props) => {
           <Typography gutterBottom variant="h5" component="div">
             {props.item.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2">
             {props.item.description}
           </Typography>
         </CardContent>
@@ -47,7 +45,7 @@ export const CardRestaurant = (props) => {
           <p>frete R${props.item.shipping}</p>
         </DivFrete>
       </CardEstilizado>
-    </div>
+
 
   );
 }
