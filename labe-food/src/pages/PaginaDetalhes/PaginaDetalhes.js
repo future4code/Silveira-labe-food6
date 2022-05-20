@@ -48,10 +48,11 @@ const PaginaDetalhes = () => {
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
    const indexProdutos = productAdd.findIndex((i) =>{
-     return i.id = comida.id 
+     return i.id === comida.id 
      
 
    })
+   console.log(indexProdutos)
    if(indexProdutos !== -1){
     const novoCarrinho = [...productAdd] 
     novoCarrinho[indexProdutos].quantity ++
@@ -64,7 +65,7 @@ const PaginaDetalhes = () => {
 		
       	
   }
-
+console.log(productAdd)
 
   return (
       <div>

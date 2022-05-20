@@ -44,7 +44,7 @@ const PaginaCarrinho = (props) => {
       </CardContainer>
     )
   })
-
+  console.log(productAdd)
   return (
     <CarrinhoContainer>
 
