@@ -27,7 +27,7 @@ export const Place = styled.div`
   padding: 30px;
 `
 export const DivFooter = styled.div`
-  position: fixed;
-  width: 100%;
-  bottom: 0;  
+ position: fixed;
+ width: 100%;
+ bottom: 0;  
 `

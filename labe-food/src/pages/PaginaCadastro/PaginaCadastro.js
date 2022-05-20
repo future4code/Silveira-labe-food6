@@ -60,6 +60,7 @@ const PaginaCadastro = () => {
             id="outlined-basic"
             label="E-mail"
             margin='dense'
+            type="email"
             fullWidth
             type="email"
             InputLabelProps={{ shrink: true }}

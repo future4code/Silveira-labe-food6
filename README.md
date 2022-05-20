@@ -1,3 +1,5 @@
+# Silveira-labe-food6
+
 LABEFOOD Grupo FOURFOODB
 O que funciona
   - O usuário é capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço
@@ -21,12 +23,10 @@ O que funciona
 
 O que não funciona
   - O usuário não consegue editar seus dados pessoais e endereço
-
   -  Ao tentar editar informações usuario é redirecionado para pagina home.
-
   - Usuario não consegue ver o  banner de "Pedido em Andamento" com os dados do pedido.
 
 Link Surge
-
+shaky-moon.surge.sh
 
 Imagens

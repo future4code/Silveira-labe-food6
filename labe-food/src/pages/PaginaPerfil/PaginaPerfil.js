@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { irParaCadastro, useProtectPage } from '../../routes/coordinator';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { App, Hr, DivLogo, EditUser, DivUserStats, EditAddress, DivUserAddress, Hr2, DivFooter, CardHistory } from './styled';
+import { App, Hr, DivLogo, EditUser, DivUserStats, EditAddress, DivUserAddress, Hr2, DivFooter, CardHistory, ContainerCardHistory, StyledTextHistory } from './styled';
 import EditIcon from '../../assets/edit.png';
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom';
@@ -11,23 +11,25 @@ const PaginaPerfil = () => {
   useProtectPage();
   const { addressUser } = useContext(GlobalStateContext);
   const { userStats } = useContext(GlobalStateContext);
-  const { orderHistory, getOrderHistory } = useContext(GlobalStateContext);
+  const { orderHistory } = useContext(GlobalStateContext);
   const navigate = useNavigate()
 
-  const setRest = (rest) => {
-    getOrderHistory(rest)
-  }
 
-  const cardHistory = getOrderHistory && getOrderHistory.map((item) => {
+
+  const cardHistory = orderHistory && orderHistory.map((item) => {
     return (
-      <CardHistory
-        item={item}
-        setRest={setRest}
-      />
-      
+      <ContainerCardHistory
+        key={item.data}
+      >
+        <StyledTextHistory>
+          <p>Nome: {item.restaurantName}</p>
+          <p>SubTotal: R$ {item.totalPrice}</p>
+        </StyledTextHistory>
+      </ContainerCardHistory>
     )
   })
-  console.log(cardHistory)
+
+  console.log(orderHistory)
   return (
     <App>
       <DivLogo>
@@ -51,7 +53,7 @@ const PaginaPerfil = () => {
       </EditAddress>
       <h4>Histórico de pedidos</h4>
       <Hr2></Hr2>
-      <p><strong>{cardHistory}</strong></p>
+      {cardHistory}
       <DivFooter>
         <Footer />
       </DivFooter>
