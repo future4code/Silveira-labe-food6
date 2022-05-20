@@ -57,8 +57,3 @@ export const Content = styled.p`
     margin: 10px;
 
 `
-export const DivFooter = styled.div`
-    position: fixed;
-    width: 100%;
-    bottom: 0;
- `
