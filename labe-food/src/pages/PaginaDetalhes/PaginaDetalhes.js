@@ -48,9 +48,8 @@ const PaginaDetalhes = () => {
 
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
-<<<<<<< HEAD
     const indexProdutos = productAdd.findIndex((i) => {
-      return i.id = comida.id
+      return i.id === comida.id
 
 
     })
@@ -64,44 +63,13 @@ const PaginaDetalhes = () => {
       setProductAdd(novoCarrinho)
     }
 
-=======
-   const indexProdutos = productAdd.findIndex((i) =>{
-     return i.id === comida.id 
-     
 
-   })
-   console.log(indexProdutos)
-   if(indexProdutos !== -1){
-    const novoCarrinho = [...productAdd] 
-    novoCarrinho[indexProdutos].quantity ++
->>>>>>> e1a4958171837f751fa6814b59573a45cfdedae0
 
   }
 console.log(productAdd)
 
   return (
-<<<<<<< HEAD
-    <div>
-      <RecipeCardContainer>
-        {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
 
-          <CardMedia component={'img'} alt={'imagem'}
-            height={"150px"} image={restaurant.restaurant.logoUrl}>
-          </CardMedia>
-          <Typography align='center'>
-            <h3>{restaurant.restaurant.category}</h3>
-            <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
-            <p> {restaurant.restaurant.address}</p>
-
-          </Typography>
-
-
-        </CardActionArea>}
-        {MenuRestaurant}
-
-      </RecipeCardContainer>
-      <Footer></Footer>
-=======
       <div>
     <RecipeCardContainer>
       
@@ -121,7 +89,6 @@ console.log(productAdd)
       
     </RecipeCardContainer>
     <Footer></Footer>
->>>>>>> e1a4958171837f751fa6814b59573a45cfdedae0
     </div>
   )
 }
