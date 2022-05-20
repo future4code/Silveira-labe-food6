@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
 `
 export const InputSearch = styled(TextField)`
     display: flex;
@@ -37,14 +38,30 @@ export const DivSearch = styled.div`
     flex-wrap: wrap;
     display: block;
     justify-content: space-between;
+    width: 100%;
 `
 
 export const SelectRestaurantType = styled.div`
     display: flex;
     overflow-x: auto;
     padding: 8px;
+    width: 100%;
 `
 
 export const CardEstilizado = styled(Card)`
     padding: 10px;
+`
+export const TelaInicial = styled.img`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 102vw;
+    height: 102vh;
+    z-index: 2;
+
+`
+export const DivFooter = styled.div`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 `

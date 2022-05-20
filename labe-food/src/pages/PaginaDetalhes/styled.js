@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 export const RecipeCardContainer = styled(Card)`
   width: 250px;
   margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
 
 `
 

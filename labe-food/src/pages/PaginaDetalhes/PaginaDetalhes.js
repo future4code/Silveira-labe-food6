@@ -1,10 +1,10 @@
-import React, {useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CardActionArea } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 import Footer from '../../components/Footer/Footer';
-import { Place, RecipeCardContainer, Borda} from './styled'
+import { Place, RecipeCardContainer, Borda } from './styled'
 import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
@@ -40,35 +40,36 @@ const PaginaDetalhes = () => {
 
 
       </CardActionArea>
-      
-      </Place>
+
+    </Place>
     )
   })
 
 
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
-   const indexProdutos = productAdd.findIndex((i) =>{
-     return i.id === comida.id 
-     
+    const indexProdutos = productAdd.findIndex((i) => {
+      return i.id === comida.id
 
-   })
-   console.log(indexProdutos)
-   if(indexProdutos !== -1){
-    const novoCarrinho = [...productAdd] 
-    novoCarrinho[indexProdutos].quantity ++
 
-		setProductAdd(novoCarrinho)
-   }else{
-    const novoCarrinho = [...productAdd, {...comida, quantity: 1}]
-		setProductAdd(novoCarrinho)
-   }
-		
-      	
+    })
+    if (indexProdutos !== -1) {
+      const novoCarrinho = [...productAdd]
+      novoCarrinho[indexProdutos].quantity++
+
+      setProductAdd(novoCarrinho)
+    } else {
+      const novoCarrinho = [...productAdd, { ...comida, quantity: 1 }]
+      setProductAdd(novoCarrinho)
+    }
+
+
+
   }
 console.log(productAdd)
 
   return (
+
       <div>
     <RecipeCardContainer>
       
