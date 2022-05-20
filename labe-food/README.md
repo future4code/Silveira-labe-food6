@@ -21,7 +21,9 @@ O que funciona
 
 O que não funciona
   - O usuário não consegue editar seus dados pessoais e endereço
+
   -  Ao tentar editar informações usuario é redirecionado para pagina home.
+
   - Usuario não consegue ver o  banner de "Pedido em Andamento" com os dados do pedido.
 
 Link Surge

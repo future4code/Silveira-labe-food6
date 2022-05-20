@@ -21,9 +21,7 @@ const PaginaCarrinho = () => {
   const { paymentMethod } = useContext(GlobalStateContext);
 
 
-  // const total = 
-
-
+  
   const gerarPedido = () => {
     const auth = localStorage.getItem("token");
     const headers = {
@@ -31,20 +29,20 @@ const PaginaCarrinho = () => {
         auth: auth
       }
     }
-     const body = {
+    const body = {
       products: productAdd.map((item) => {
-        return {id : item.id , quantity: item.quantity}
+        return { id: item.id, quantity: item.quantity }
       }),
-      paymentMethod:paymentMethod
-    } 
+      paymentMethod: paymentMethod
+    }
     console.log(body)
     axios.post(`${BASE_URL}/restaurants/${currentRestaurant.id}/order`, body, headers)
       .then((res) => {
-        clear()        
+        clear()
       })
       .catch((err) => {
         alert(err.response.data.message)
-     })
+      })
   }
 
 
@@ -53,11 +51,11 @@ const PaginaCarrinho = () => {
     total + item.price * item.quantity + currentRestaurant.shipping, 0
   )
 
-    const removerProduto = (produtos) => {
-      const product = productAdd.find((item) => {
-        return item.id === produtos.id
+  const removerProduto = (produtos) => {
+    const product = productAdd.find((item) => {
+      return item.id === produtos.id
     })
-    
+
     if (product.quantity <= 1) {
       const novoCarrinho = productAdd.filter((produto) => {
         return produto.id !== produtos.id
@@ -87,19 +85,19 @@ const PaginaCarrinho = () => {
           <p> R$ {produto.price}</p>
           <p>Quantidade: {produto.quantity}</p>
           <ButtonRemove color='primary' variant="contained" onClick={() => removerProduto(produto)}>Remover</ButtonRemove>
-          
+
         </InfoContainer>
 
       </CardContainer>
     )
   })
-  
+
   return (
     <CarrinhoContainer>
 
       <h2>Carrinho de Compras</h2>
       <CardEnderecos />
-      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <ShoppingCartOutlinedIcon/>}
+      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras : <p>Carrinho Vazio <ShoppingCartOutlinedIcon /></p>}
       <p>Frete R$ {currentRestaurant.shipping}</p>
       <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>

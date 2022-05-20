@@ -5,6 +5,7 @@ import { CardMedia } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 import Footer from '../../components/Footer/Footer';
 import { Place, RecipeCardContainer, Borda, DivFooter } from './styled'
+
 import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
@@ -22,7 +23,7 @@ const PaginaDetalhes = () => {
   useEffect(() => {
     setCurrentRestaurant(restaurant.restaurant)
   }, [restaurant])
-  
+
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (<Place key={comida.id}>
@@ -66,32 +67,35 @@ const PaginaDetalhes = () => {
 
 
   }
-console.log(productAdd)
+  console.log(productAdd)
 
   return (
 
-      <div>
-    <RecipeCardContainer>
-      
-      {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
-      
-        <CardMedia component={'img'} alt={'imagem'}
-          height={"150px"} image={restaurant.restaurant.logoUrl}>
-        </CardMedia>
-        <Typography align='center'>
-          <h2>{restaurant.restaurant.category}</h2>
-          <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
-          <p> {restaurant.restaurant.address}</p>          
-        </Typography>        
 
-      </CardActionArea> }      
-      {MenuRestaurant}
-      
-    </RecipeCardContainer>
-    <DivFooter>
-    <Footer></Footer>
-    </DivFooter>
-    </div>
+    <div>
+      <RecipeCardContainer>
+
+        {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
+
+          <CardMedia component={'img'} alt={'imagem'}
+            height={"150px"} image={restaurant.restaurant.logoUrl}>
+          </CardMedia>
+          <Typography align='center'>
+            <h2>{restaurant.restaurant.category}</h2>
+            <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
+            <p> {restaurant.restaurant.address}</p>
+          </Typography>
+
+        </CardActionArea>}
+        {MenuRestaurant}
+
+      </RecipeCardContainer>
+      <DivFooter>
+        <Footer />
+      </DivFooter>
+
+      <div>
+    
   )
 }
 
