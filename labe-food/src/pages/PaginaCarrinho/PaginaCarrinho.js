@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+import React, {useContext} from 'react'
+=======
 
 import React, { useContext } from 'react'
+>>>>>>> e1a4958171837f751fa6814b59573a45cfdedae0
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer } from "../PaginaCarrinho/styled"
 import { StyledButton } from "../../global/GlobalStyled"
@@ -22,6 +26,7 @@ const PaginaCarrinho = () => {
   const { paymentMethod } = useContext(GlobalStateContext);
 
 
+  // const total = 
 
 
   const gerarPedido = () => {
