@@ -11,6 +11,7 @@ import { BASE_URL } from "../../constants/urls";
 import { StyledButton } from "../../global/GlobalStyled"
 
 
+
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
@@ -77,12 +78,12 @@ console.log(productAdd)
           height={"150px"} image={restaurant.restaurant.logoUrl}>
         </CardMedia>
         <Typography align='center'>
-          <h3>{restaurant.restaurant.category}</h3>
+          <h2>{restaurant.restaurant.category}</h2>
           <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
           <p> {restaurant.restaurant.address}</p>          
         </Typography>        
 
-      </CardActionArea>}      
+      </CardActionArea> }      
       {MenuRestaurant}
       
     </RecipeCardContainer>

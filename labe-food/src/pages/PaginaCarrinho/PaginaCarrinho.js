@@ -4,6 +4,7 @@ import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer } from "../PaginaCarrinho/styled"
 import { StyledButton } from "../../global/GlobalStyled"
 import FormasDePagamentos from "./FormasDePagamentos"
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Footer from '../../components/Footer/Footer';
 import { useProtectPage } from '../../routes/coordinator';
 import CardEnderecos from '../../components/CardEnderecos/CardEnderecos';
@@ -93,13 +94,13 @@ const PaginaCarrinho = () => {
       </CardContainer>
     )
   })
-  console.log(productAdd)
+  
   return (
     <CarrinhoContainer>
 
       <h2>Carrinho de Compras</h2>
       <CardEnderecos />
-      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: `Carrinho Vazio =(`}
+      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <ShoppingCartOutlinedIcon/>}
       <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>
         <FormasDePagamentos />
