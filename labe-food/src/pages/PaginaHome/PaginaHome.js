@@ -3,11 +3,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { useNavigate } from "react-router-dom";
 import { CardRestaurant } from './CardRestaurant';
-import { Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType, TelaInicial } from './styled';
+import { Container, DivFooter, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType, TelaInicial } from './styled';
 import SelectType from './SelectType';
 import { useProtectPage } from '../../routes/coordinator';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
 import Splash from '../../assets/Tela-Inicial.png'
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -82,6 +83,9 @@ const PaginaHome = () => {
           />
         )
       })}
+      <DivFooter>
+        <Footer/>
+      </DivFooter>
     </Container>
   )
 }

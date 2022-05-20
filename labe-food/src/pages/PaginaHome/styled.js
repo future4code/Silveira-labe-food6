@@ -60,3 +60,8 @@ export const TelaInicial = styled.img`
     z-index: 2;
 
 `
+export const DivFooter = styled.div`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+`
