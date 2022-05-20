@@ -12,8 +12,7 @@ export default function GlobalState(props) {
     const [activeOrder, setActiveOrder] = useState([]);
     const [productAdd, setProductAdd] = useState([]);
     const [userStats, setUserStats] = useState([]);
-    const [currentRestaurant, setCurrentRestaurant] = useState({});
-    const [paymentMethod, setPaymentMethod] = useState([]);
+
 
 
     const headers = {
@@ -90,11 +89,7 @@ export default function GlobalState(props) {
         setActiveOrder,
         productAdd,
         setProductAdd,
-        currentRestaurant,
-        setCurrentRestaurant,
-        paymentMethod,
-        setPaymentMethod,
-        
+
     };
 
     return (

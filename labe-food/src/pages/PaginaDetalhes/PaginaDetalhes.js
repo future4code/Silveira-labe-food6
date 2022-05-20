@@ -14,6 +14,19 @@ import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+
+  const [restaurant, getRestaurant] = useRequestData({},`${BASE_URL}/restaurants/${params.id}`)
+
+ 
+  console.log(restaurant.restaurant && restaurant.restaurant)
+
+  const AtualizarRestaurante = () => {
+    setProductAdd(restaurant)
+      
+  } 
+
+ 
+
   const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
   const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
 
@@ -22,6 +35,7 @@ const PaginaDetalhes = () => {
     setCurrentRestaurant(restaurant.restaurant)
   }, [restaurant])
   
+
 
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (<Place key={comida.id}>
@@ -43,6 +57,8 @@ const PaginaDetalhes = () => {
       </Place>
     )
   })
+
+
 
 
   const adicionarProduto = (comida) => {
