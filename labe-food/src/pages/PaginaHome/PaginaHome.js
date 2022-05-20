@@ -2,10 +2,8 @@
 import React, { useContext, useState } from 'react';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { useNavigate } from "react-router-dom";
-import Button from '@material-ui/core/Button';
 import { CardRestaurant } from './CardRestaurant';
-import { TextField } from '@material-ui/core';
-import { BotaoPesquisa, Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType } from './styled';
+import { Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType } from './styled';
 import SelectType from './SelectType';
 import { useProtectPage } from '../../routes/coordinator';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
@@ -60,8 +58,9 @@ const PaginaHome = () => {
           {typeRestaurant}
         </SelectRestaurantType>
 
+
       </DivSearch>
-      
+
       {restaurantFilter && restaurantFilter.map((restaurant) => {
         return (
           <CardRestaurant

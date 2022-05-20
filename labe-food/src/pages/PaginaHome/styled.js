@@ -30,6 +30,7 @@ export const LogoHomeDiv = styled.div`
     justify-content: center;
     padding-bottom: 15px;
 `
+
 export const DivSearch = styled.div`
     display: flex;
     align-items: center;
@@ -37,11 +38,13 @@ export const DivSearch = styled.div`
     display: block;
     justify-content: space-between;
 `
+
 export const SelectRestaurantType = styled.div`
-display: flex;
-overflow-x: scroll;
-padding: 8px;
+    display: flex;
+    overflow-x: auto;
+    padding: 8px;
 `
+
 export const CardEstilizado = styled(Card)`
     padding: 10px;
 `
