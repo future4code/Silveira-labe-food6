@@ -1,4 +1,3 @@
-
 import React, {useContext} from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
@@ -14,6 +13,7 @@ const PaginaCarrinho = () => {
   // console.log(productAdd)
 
 
+  // const total = 
 
   return (
     <CarrinhoContainer>

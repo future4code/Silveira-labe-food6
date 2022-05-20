@@ -1,10 +1,10 @@
-import React, {useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CardActionArea } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 import Footer from '../../components/Footer/Footer';
-import { Place, RecipeCardContainer, Borda} from './styled'
+import { Place, RecipeCardContainer, Borda } from './styled'
 import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
@@ -39,55 +39,54 @@ const PaginaDetalhes = () => {
 
 
       </CardActionArea>
-      
-      </Place>
+
+    </Place>
     )
 
   })
 
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
-   const indexProdutos = productAdd.findIndex((i) =>{
-     return i.id = comida.id 
-     
+    const indexProdutos = productAdd.findIndex((i) => {
+      return i.id = comida.id
 
-   })
-   if(indexProdutos !== -1){
-    const novoCarrinho = [...productAdd] 
-    novoCarrinho[indexProdutos].quantity ++
 
-		setProductAdd(novoCarrinho)
-   }else{
-    const novoCarrinho = [...productAdd, {...comida, quantity: 1}]
-		setProductAdd(novoCarrinho)
-   }
-		
-      	
+    })
+    if (indexProdutos !== -1) {
+      const novoCarrinho = [...productAdd]
+      novoCarrinho[indexProdutos].quantity++
+
+      setProductAdd(novoCarrinho)
+    } else {
+      const novoCarrinho = [...productAdd, { ...comida, quantity: 1 }]
+      setProductAdd(novoCarrinho)
+    }
+
+
   }
 
 
   return (
-      <div>
-    <RecipeCardContainer>
-      <Footer/>
-      {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
-      
-        <CardMedia component={'img'} alt={'imagem'}
-          height={"150px"} image={restaurant.restaurant.logoUrl}>
-        </CardMedia>
-        <Typography align='center'>
-          <h3>{restaurant.restaurant.category}</h3>
-          <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
-          <p> {restaurant.restaurant.address}</p>
-          
-        </Typography>
-        
+    <div>
+      <RecipeCardContainer>
+        {restaurant.restaurant && <CardActionArea key={restaurant.restaurant.id}>
 
-      </CardActionArea>}      
-      {MenuRestaurant}
-      
-    </RecipeCardContainer>
-    <Footer></Footer>
+          <CardMedia component={'img'} alt={'imagem'}
+            height={"150px"} image={restaurant.restaurant.logoUrl}>
+          </CardMedia>
+          <Typography align='center'>
+            <h3>{restaurant.restaurant.category}</h3>
+            <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
+            <p> {restaurant.restaurant.address}</p>
+
+          </Typography>
+
+
+        </CardActionArea>}
+        {MenuRestaurant}
+
+      </RecipeCardContainer>
+      <Footer></Footer>
     </div>
   )
 }
