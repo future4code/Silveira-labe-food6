@@ -32,7 +32,7 @@ export const useProtectPage = () => {
         const token = localStorage.getItem('token');
 
         if (token === null) {
-            navigate('/login')
+            navigate('/')
         }
     })
 }

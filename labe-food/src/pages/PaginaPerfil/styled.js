@@ -89,3 +89,7 @@ export const DivFooter = styled.div`
     width: 100%;
     bottom: 0;
 `
+
+export const CardHistory = styled.div`
+
+`
