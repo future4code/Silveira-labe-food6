@@ -12,20 +12,19 @@ import useForm from '../../hooks/useForm';
 
 const PaginaCarrinho = (props) => {
   useProtectPage();
-  const [pedido, setPedido] = useState({})
+  const [pedido, setPedido] = useState()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
   const { paymentMethod, setPaymentMethod } = useContext(GlobalStateContext);
-
-  console.log(productAdd)
-
+    
+  
+    
+  // setPedido( {product: {id:productAdd.id, quantity: productAdd.quantity }, paymentMethod:paymentMethod } )
+    
+  console.log(pedido)
   const total = productAdd.reduce((total, item) =>
     total + item.price * item.quantity + currentRestaurant.shipping, 0
   )
-
-  
-
-
   const CarrinhoDeCompras = productAdd && productAdd.map((produto) => {
     return (
       <CardContainer>
@@ -53,12 +52,12 @@ const PaginaCarrinho = (props) => {
       {CarrinhoDeCompras}
       <div>
         <p>Frete R$ {currentRestaurant.shipping}</p>
-        { }
+        
       </div>
       <PagamentosContainer>
         <FormasDePagamentos />
       </PagamentosContainer>
-      <button>Gerar Pedido</button>
+      <button >Gerar Pedido</button>
       <Footer />
 
 
