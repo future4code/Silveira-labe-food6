@@ -90,6 +90,12 @@ export const DivFooter = styled.div`
     bottom: 0;
 `
 
-export const CardHistory = styled.div`
+export const ContainerCardHistory = styled.div`
+border: solid black 1px;
+margin: 3vh; 
+box-shadow: 1px;
+`
 
+export const StyledTextHistory = styled.div`
+margin: 8px;
 `
