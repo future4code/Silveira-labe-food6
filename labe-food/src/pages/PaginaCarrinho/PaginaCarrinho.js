@@ -1,42 +1,121 @@
+<<<<<<< HEAD
 import React, {useContext} from 'react'
+=======
+
+import React, { useContext } from 'react'
+>>>>>>> e1a4958171837f751fa6814b59573a45cfdedae0
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import {PagamentosContainer, CarrinhoContainer} from "../PaginaCarrinho/styled"
+import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer } from "../PaginaCarrinho/styled"
+import { StyledButton } from "../../global/GlobalStyled"
 import FormasDePagamentos from "./FormasDePagamentos"
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Footer from '../../components/Footer/Footer';
 import { useProtectPage } from '../../routes/coordinator';
 import CardEnderecos from '../../components/CardEnderecos/CardEnderecos';
-import CardProdutoAdded from "../../components/CardProdutoAdded/CardProdutoAdded"
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
+
+
 
 const PaginaCarrinho = () => {
   useProtectPage();
-  // const { productAdd, setProductAdd } = useContext(GlobalStateContext);
-  // console.log(productAdd)
+  const [form, onChange, clear] = useForm({})
+  const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+  const { currentRestaurant } = useContext(GlobalStateContext);
+  const { paymentMethod } = useContext(GlobalStateContext);
 
 
   // const total = 
 
+
+  const gerarPedido = () => {
+    const auth = localStorage.getItem("token");
+    const headers = {
+      headers: {
+        auth: auth
+      }
+    }
+     const body = {
+      products: productAdd.map((item) => {
+        return {id : item.id , quantity: item.quantity}
+      }),
+      paymentMethod:paymentMethod
+    } 
+    console.log(body)
+    axios.post(`${BASE_URL}/restaurants/${currentRestaurant.id}/order`, body, headers)
+      .then((res) => {
+        console.log(res)
+        clear()        
+      })
+      .catch((err) => {
+        alert(err.response.data.message)
+     })
+  }
+
+
+  console.log(productAdd)
+  const total = productAdd.reduce((total, item) =>
+    total + item.price * item.quantity + currentRestaurant.shipping, 0
+  )
+
+    const removerProduto = (produtos) => {
+      const product = productAdd.find((item) => {
+        return item.id === produtos.id
+    })
+    
+    if (product.quantity <= 1) {
+      const novoCarrinho = productAdd.filter((produto) => {
+        return produto.id !== produtos.id
+      })
+      setProductAdd(novoCarrinho)
+    } else {
+      const novoCarrinho = productAdd.map((produto) => {
+        if (produto.id === produtos.id) {
+          const carrinho = { ...produto, quantity: produto.quantity - 1 }
+          return carrinho
+        }
+        return produto
+      })
+      setProductAdd(novoCarrinho)
+    }
+  }
+
+  const CarrinhoDeCompras = productAdd && productAdd.map((produto) => {
+    return (
+      <CardContainer>
+        <div key={produto.id} >
+          <ImgContainer src={produto.photoUrl} />
+        </div>
+        <div>
+          <strong>{produto.name}</strong>
+          <p>{produto.description}</p>
+          <p> R$ {produto.price}</p>
+          <p>Quantidade: {produto.quantity}</p>
+          <StyledButton color='primary' variant="contained" onClick={() => removerProduto(produto)}>Remover</StyledButton>
+          <p>Frete R$ {currentRestaurant.shipping}</p>
+        </div>
+
+      </CardContainer>
+    )
+  })
+  
   return (
     <CarrinhoContainer>
 
-      <h2>Meu Carrinho</h2>
+      <h2>Carrinho de Compras</h2>
       <CardEnderecos />
-      <CardProdutoAdded/>
-      <div>
-        Frete R$6,00
-        SUBTOTAL R$ 67,00
-      </div>
+      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <ShoppingCartOutlinedIcon/>}
+      <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>
         <FormasDePagamentos />
       </PagamentosContainer>
+      <StyledButton color='primary' variant="contained" onClick={gerarPedido} >Gerar Pedido</StyledButton>
       <Footer />
-
 
     </CarrinhoContainer>
   )
 }
 export default PaginaCarrinho;
-
-
-
 
 

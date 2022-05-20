@@ -4,8 +4,10 @@ import {EnderecoUsuario, EnderecoRestaurante} from "./styled"
 
 const CardEnderecos = () => {
     const { addressUser } = useContext(GlobalStateContext);
-    // const [ productAdd, setProductAdd ] = useContext(GlobalStateContext);
-    // console.log(productAdd)
+    const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
+
+
+       
     
     
     return (
@@ -15,10 +17,9 @@ const CardEnderecos = () => {
                 <p>{addressUser.street}, {addressUser.number}</p>
             </EnderecoUsuario>
             <EnderecoRestaurante>
-                <p>Burguer Vila Madalena</p>
-                <p>R. Fradique Coutinho, 1136 - Vila Madalena</p>
+                <p>{currentRestaurant.name}</p>
+                <p>{currentRestaurant.address}</p>
             </EnderecoRestaurante>
-
         </div>
     )
 }

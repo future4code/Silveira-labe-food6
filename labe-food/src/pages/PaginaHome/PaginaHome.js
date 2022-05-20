@@ -1,14 +1,14 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { useNavigate } from "react-router-dom";
-import Button from '@material-ui/core/Button';
 import { CardRestaurant } from './CardRestaurant';
-import { TextField } from '@material-ui/core';
-import { BotaoPesquisa, Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType } from './styled';
+import { Container, DivFooter, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType, TelaInicial } from './styled';
 import SelectType from './SelectType';
 import { useProtectPage } from '../../routes/coordinator';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
+import Splash from '../../assets/Tela-Inicial.png'
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -19,6 +19,13 @@ const PaginaHome = () => {
   const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
   const navigate = useNavigate()
   const {currentRestaurant, setCurrentRestaurant} = useContext(GlobalStateContext)
+  const [showSplash, setShowSplash] = useState(true)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setShowSplash(false)
+    }, 3000)
+  }, [])
 
   const setRest = (rest) => {
     setCurrentRestaurant(rest)
@@ -41,7 +48,7 @@ const PaginaHome = () => {
         setTipoDeRestaurante={setTipoDeRestaurante}
       />
     )
-    console.log(item)
+    
   })
 
   const restaurantFilter = restaurantList && restaurantList.filter((restaurant) => {
@@ -50,10 +57,11 @@ const PaginaHome = () => {
 
   return (
     <Container >
-      <LogoHomeDiv>
+      {showSplash && <TelaInicial src={Splash}/>}
+      <LogoHomeDiv key={'logo'}>
         <LogoHome src={LogoVermelha} alt='labefood' />
       </LogoHomeDiv>
-      <DivSearch>
+      <DivSearch key='buscar'>
         <InputSearch
           id="outlined-basic"
           label="Buscar restaurante"
@@ -65,8 +73,9 @@ const PaginaHome = () => {
           {typeRestaurant}
         </SelectRestaurantType>
 
+
       </DivSearch>
-      
+
       {restaurantFilter && restaurantFilter.map((restaurant) => {
         return (
           <CardRestaurant
@@ -74,6 +83,9 @@ const PaginaHome = () => {
           />
         )
       })}
+      <DivFooter>
+        <Footer/>
+      </DivFooter>
     </Container>
   )
 }

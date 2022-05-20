@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 
 
+
 export default function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
     const [addressUser, setAddressUser] = useState([]);
@@ -12,6 +13,8 @@ export default function GlobalState(props) {
     const [productAdd, setProductAdd] = useState([]);
     const [userStats, setUserStats] = useState([]);
     const [currentRestaurant, setCurrentRestaurant] = useState({});
+    const [paymentMethod, setPaymentMethod] = useState([]);
+
 
     const headers = {
         headers: {
@@ -88,7 +91,10 @@ export default function GlobalState(props) {
         productAdd,
         setProductAdd,
         currentRestaurant,
-        setCurrentRestaurant
+        setCurrentRestaurant,
+        paymentMethod,
+        setPaymentMethod,
+        
     };
 
     return (

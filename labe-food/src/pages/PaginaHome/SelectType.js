@@ -15,12 +15,12 @@ const SelectType = (props) => {
   }
 
   return (
-      <SelectRestaurantType>
+      <div>
         <Button
           variant="outlined"
           onClick={selectRestaurant}
         >{props.item.category}</Button>
-      </SelectRestaurantType>
+      </div>
 
   )
 }
