@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
 import { StyledButton } from "../../global/GlobalStyled"
-import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
+
 
 const PaginaDetalhes = () => {
   const params = useParams()

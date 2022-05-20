@@ -29,7 +29,7 @@ export const signup = (body, clear, navigate) => {
             navigate('/endereco')
         })
         .catch((err) => {
-            alert("Erro ao fazer login")
+            alert(err.response.data.message)
             console.log(err)
         })
 }
@@ -50,7 +50,7 @@ export const addres = (body, clear, navigate) => {
             navigate('/')
         })
         .catch((err) => {
-            alert("Erro ao adicionar endereço.")
+            alert(err.response.data.message)
             console.log(err)
         })
 }

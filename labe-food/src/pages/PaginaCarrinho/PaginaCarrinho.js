@@ -2,17 +2,20 @@
 import React, { useContext } from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer } from "../PaginaCarrinho/styled"
+import { StyledButton } from "../../global/GlobalStyled"
 import FormasDePagamentos from "./FormasDePagamentos"
 import Footer from '../../components/Footer/Footer';
 import { useProtectPage } from '../../routes/coordinator';
 import CardEnderecos from '../../components/CardEnderecos/CardEnderecos';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
 
 
 
-const PaginaCarrinho = (props) => {
+const PaginaCarrinho = () => {
   useProtectPage();
+  const [form, onChange, clear] = useForm({})
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   const { currentRestaurant } = useContext(GlobalStateContext);
   const { paymentMethod } = useContext(GlobalStateContext);
@@ -37,12 +40,11 @@ const PaginaCarrinho = (props) => {
     axios.post(`${BASE_URL}/restaurants/${currentRestaurant.id}/order`, body, headers)
       .then((res) => {
         console.log(res)
-        setProductAdd([])
+        clear()        
       })
       .catch((err) => {
-        alert("Erro ao adicionar endereço.")
-        console.log(err)
-      })
+        alert(err.response.data.message)
+     })
   }
 
 
@@ -51,11 +53,11 @@ const PaginaCarrinho = (props) => {
     total + item.price * item.quantity + currentRestaurant.shipping, 0
   )
 
-  const removerProduto = (produtos) => {
-    const product = productAdd.find((item) => {
-      return item.id === produtos.id
+    const removerProduto = (produtos) => {
+      const product = productAdd.find((item) => {
+        return item.id === produtos.id
     })
-    console.log(product, productAdd, produtos)
+    
     if (product.quantity <= 1) {
       const novoCarrinho = productAdd.filter((produto) => {
         return produto.id !== produtos.id
@@ -71,7 +73,6 @@ const PaginaCarrinho = (props) => {
       })
       setProductAdd(novoCarrinho)
     }
-
   }
 
   const CarrinhoDeCompras = productAdd && productAdd.map((produto) => {
@@ -85,7 +86,7 @@ const PaginaCarrinho = (props) => {
           <p>{produto.description}</p>
           <p> R$ {produto.price}</p>
           <p>Quantidade: {produto.quantity}</p>
-          <button onClick={() => removerProduto(produto)}>Remover</button>
+          <StyledButton color='primary' variant="contained" onClick={() => removerProduto(produto)}>Remover</StyledButton>
           <p>Frete R$ {currentRestaurant.shipping}</p>
         </div>
 
@@ -96,16 +97,15 @@ const PaginaCarrinho = (props) => {
   return (
     <CarrinhoContainer>
 
-      <h2>Meu Carrinho</h2>
+      <h2>Carrinho de Compras</h2>
       <CardEnderecos />
-      {CarrinhoDeCompras}
+      {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: `Carrinho Vazio =(`}
       <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>
         <FormasDePagamentos />
       </PagamentosContainer>
-      <button onClick={gerarPedido} >Gerar Pedido</button>
+      <StyledButton color='primary' variant="contained" onClick={gerarPedido} >Gerar Pedido</StyledButton>
       <Footer />
-
 
     </CarrinhoContainer>
   )
