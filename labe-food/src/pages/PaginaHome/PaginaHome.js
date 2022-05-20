@@ -1,12 +1,13 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { useNavigate } from "react-router-dom";
 import { CardRestaurant } from './CardRestaurant';
-import { Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType } from './styled';
+import { Container, DivSearch, InputSearch, LogoHome, LogoHomeDiv, SelectRestaurantType, TelaInicial } from './styled';
 import SelectType from './SelectType';
 import { useProtectPage } from '../../routes/coordinator';
 import LogoVermelha from '../.././assets/logo-vermelha.png';
+import Splash from '../../assets/Tela-Inicial.png'
 
 
 
@@ -17,6 +18,13 @@ const PaginaHome = () => {
   const [tipoDeRestaurante, setTipoDeRestaurante] = useState('')
   const navigate = useNavigate()
   const {currentRestaurant, setCurrentRestaurant} = useContext(GlobalStateContext)
+  const [showSplash, setShowSplash] = useState(true)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setShowSplash(false)
+    }, 3000)
+  }, [])
 
   const setRest = (rest) => {
     setCurrentRestaurant(rest)
@@ -48,10 +56,11 @@ const PaginaHome = () => {
 
   return (
     <Container >
-      <LogoHomeDiv>
+      {showSplash && <TelaInicial src={Splash}/>}
+      <LogoHomeDiv key={'logo'}>
         <LogoHome src={LogoVermelha} alt='labefood' />
       </LogoHomeDiv>
-      <DivSearch>
+      <DivSearch key='buscar'>
         <InputSearch
           id="outlined-basic"
           label="Buscar restaurante"
