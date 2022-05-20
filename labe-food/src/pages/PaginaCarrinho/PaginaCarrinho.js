@@ -35,7 +35,7 @@ const PaginaCarrinho = () => {
       }),
       paymentMethod: paymentMethod
     }
-    console.log(body)
+    // console.log(body)
     axios.post(`${BASE_URL}/restaurants/${currentRestaurant.id}/order`, body, headers)
       .then((res) => {
         clear()
@@ -46,7 +46,7 @@ const PaginaCarrinho = () => {
   }
 
 
-  console.log(productAdd)
+  
   const total = productAdd.reduce((total, item) =>
     total + item.price * item.quantity + currentRestaurant.shipping, 0
   )

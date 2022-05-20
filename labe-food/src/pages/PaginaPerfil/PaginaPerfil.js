@@ -29,8 +29,7 @@ const PaginaPerfil = () => {
     )
   })
 
-  console.log(orderHistory)
-  return (
+    return (
     <App>
       <DivLogo>
         <h3><strong>Meu Perfil</strong></h3>

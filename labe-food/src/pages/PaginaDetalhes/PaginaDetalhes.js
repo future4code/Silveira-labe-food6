@@ -4,8 +4,7 @@ import { CardActionArea } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 import Footer from '../../components/Footer/Footer';
-import { Place, RecipeCardContainer, Borda, DivFooter } from './styled'
-
+import { Place, RecipeCardContainer,DivFooter } from './styled'
 import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
@@ -67,7 +66,7 @@ const PaginaDetalhes = () => {
 
 
   }
-  console.log(productAdd)
+ 
 
   return (
 
@@ -94,7 +93,7 @@ const PaginaDetalhes = () => {
         <Footer />
       </DivFooter>
 
-      <div>
+      </div>
     
   )
 }
