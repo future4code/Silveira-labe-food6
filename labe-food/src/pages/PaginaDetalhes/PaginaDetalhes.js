@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CardActionArea } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
@@ -14,6 +14,7 @@ import PaginaCarrinho from '../PaginaCarrinho/PaginaCarrinho';
 const PaginaDetalhes = () => {
   const params = useParams()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
+
   const [restaurant, getRestaurant] = useRequestData({},`${BASE_URL}/restaurants/${params.id}`)
 
  
@@ -26,6 +27,16 @@ const PaginaDetalhes = () => {
 
  
 
+  const [restaurant, getRestaurant] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
+  const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
+
+
+  useEffect(() => {
+    setCurrentRestaurant(restaurant.restaurant)
+  }, [restaurant])
+  
+
+
   const MenuRestaurant = restaurant.restaurant && restaurant.restaurant.products.map((comida) => {
     return (<Place key={comida.id}>
       <CardActionArea >
@@ -36,7 +47,7 @@ const PaginaDetalhes = () => {
         <Typography align='center'>
           <h2>{comida.name}</h2>
           <p>{comida.description}</p>
-          <p>R$ {comida.price}0</p>
+          <p>R$ {comida.price}</p>
         </Typography>
         <StyledButton color='primary' variant="contained" onClick={() => adicionarProduto(comida)} >Adicionar</StyledButton>
 
@@ -47,15 +58,8 @@ const PaginaDetalhes = () => {
     )
   })
 
-  // const DetalhesRestaurante = restaurant.restaurant && restaurant.restaurant.map((item) => {
-  //     return (
-  //       <PaginaCarrinho
-  //       endereco={item.address}
-  //       nome={item.name}
-  //       tempo={item.deliveryTime}
-  //       />
-  //     )
-  // })
+
+
 
   const adicionarProduto = (comida) => {
     alert("Produto adicionado ao carrinho")
@@ -75,7 +79,8 @@ const PaginaDetalhes = () => {
    }
 		
       	
-  }  
+  }
+
 
   return (
       <div>
@@ -89,10 +94,8 @@ const PaginaDetalhes = () => {
         <Typography align='center'>
           <h3>{restaurant.restaurant.category}</h3>
           <p>{restaurant.restaurant.deliveryTime}min R$ {restaurant.restaurant.shipping},00 </p>
-          <p> {restaurant.restaurant.address}</p>
-          
-        </Typography>
-        
+          <p> {restaurant.restaurant.address}</p>          
+        </Typography>        
 
       </CardActionArea>}      
       {MenuRestaurant}

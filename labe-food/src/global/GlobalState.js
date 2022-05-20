@@ -2,7 +2,7 @@ import { GlobalStateContext } from "./GlobalStateContext";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import useRequestData from "../hooks/useRequestData";
+
 
 
 export default function GlobalState(props) {
@@ -14,11 +14,23 @@ export default function GlobalState(props) {
     const [userStats, setUserStats] = useState([]);
 
 
+
     const headers = {
         headers: {
             Auth: localStorage.getItem('token')
         }
     }
+
+
+
+    // const setRest = (rest) => {
+    //     axios.get(`${BASE_URL}/restaurants/${rest}`, headers)
+    //     .then((res) => {
+    //         setCurrentRestaurant(res)
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+    // }
 
     const getProfile = () => {
         axios.get(`${BASE_URL}/profile`, headers)
@@ -77,7 +89,7 @@ export default function GlobalState(props) {
         setActiveOrder,
         productAdd,
         setProductAdd,
-        
+
     };
 
     return (

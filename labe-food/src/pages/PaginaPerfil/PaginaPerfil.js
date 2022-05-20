@@ -36,7 +36,6 @@ const PaginaPerfil = () => {
         </EditAddress>
         <h4>Histórico de pedidos</h4>
         <Hr2></Hr2>
-        {/* <p>adernam</p> */}
       <DivFooter>
         <Footer />
       </DivFooter>
