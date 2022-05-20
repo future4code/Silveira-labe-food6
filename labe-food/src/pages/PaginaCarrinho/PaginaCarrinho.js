@@ -16,11 +16,11 @@ const PaginaCarrinho = (props) => {
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
   const { paymentMethod, setPaymentMethod } = useContext(GlobalStateContext);
-    
-  
-    
+
+
+
   // setPedido( {product: {id:productAdd.id, quantity: productAdd.quantity }, paymentMethod:paymentMethod } )
-    
+
   console.log(pedido)
   const total = productAdd.reduce((total, item) =>
     total + item.price * item.quantity + currentRestaurant.shipping, 0
@@ -34,10 +34,11 @@ const PaginaCarrinho = (props) => {
         <div>
           <strong>{produto.name}</strong>
           <p>{produto.description}</p>
-          <p> R${produto.price}</p>
-          <p>{produto.quantity}</p>
+          <p> R$ {produto.price}</p>
+          <p>Quantidade: {produto.quantity}</p>
           <button>Remover</button>
-          <p>{total}</p>
+          <p>Frete R$ {currentRestaurant.shipping}</p>
+          <p>SubTotal: R$ {total}</p>
         </div>
 
       </CardContainer>
@@ -50,10 +51,6 @@ const PaginaCarrinho = (props) => {
       <h2>Meu Carrinho</h2>
       <CardEnderecos />
       {CarrinhoDeCompras}
-      <div>
-        <p>Frete R$ {currentRestaurant.shipping}</p>
-        
-      </div>
       <PagamentosContainer>
         <FormasDePagamentos />
       </PagamentosContainer>
