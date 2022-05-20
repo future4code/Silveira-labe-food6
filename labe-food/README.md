@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+LABEFOOD Grupo FOURFOODB
+O que funciona
+  - O usuário é capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço
+  - Caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário recebe uma mensagem de erro clara  
+  - Após finalizar o cadastro, o usuário é redirecionado para a tela de lista de restaurantes
+  -  usuário é capaz de visualizar uma lista com todos os restaurantes
+  - O usuário é capaz de buscar um restaurante por nome
+  - O usuário é capaz de filtrar os restaurantes por categoria
+  - O usuário é capaz de clicar no card de um restaurante para visualizar a tela com seu cardápio
+  - O usuário é capaz de visualizar as informações do restaurante
+  - O usuário é capaz de visualizar as informações de cada prato
+  - O usuário é ser capaz de adicionar pratos no carrinho um por vez
+  - O usuário é ser capaz de remover itens do carrinho
+  - O usuário é capaz de visualizar a lista de itens que adicionou ao carrinho. Caso não tenha adicionado nenhum item, ele verá uma mensagem de "Carrinho Vazio"
+  - O usuário consegue visualizar, no topo da tela, o endereço de entrega
+  - O usuário consegue visualizar o preço total da compra, que esta corretamente calculado de acordo com o preço e quantidade de cada item adicionado
+  - O usuário consegue ser capaz de selecionar uma forma de pagamento dentre as opções de cartão e dinheiro
+  - O usuario consegue realizar um pedido
+  - O usuário consegue visualizar seus dados pessoais e endereço
+  - O usuário consegue capaz de visualizar o seu histórico de pedidos concluídos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O que não funciona
+  - O usuário não consegue editar seus dados pessoais e endereço
+  -  Ao tentar editar informações usuario é redirecionado para pagina home.
+  - Usuario não consegue ver o  banner de "Pedido em Andamento" com os dados do pedido.
 
-## Available Scripts
+Link Surge
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Imagens

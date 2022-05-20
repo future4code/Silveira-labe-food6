@@ -60,6 +60,7 @@ const PaginaCadastro = () => {
             id="outlined-basic"
             label="E-mail"
             margin='dense'
+            type="email"
             fullWidth
             InputLabelProps={{ shrink: true }}
             required
@@ -86,6 +87,7 @@ const PaginaCadastro = () => {
             id="outlined-basic"
             label="Senha"
             margin='dense'
+            type="password"
             fullWidth
             InputLabelProps={{ shrink: true }}
             required
