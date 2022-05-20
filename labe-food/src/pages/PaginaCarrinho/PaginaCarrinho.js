@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer } from "../PaginaCarrinho/styled"
+import { PagamentosContainer, CarrinhoContainer, ImgContainer, CardContainer, InfoContainer, ButtonRemove, Content } from "../PaginaCarrinho/styled"
 import { StyledButton } from "../../global/GlobalStyled"
 import FormasDePagamentos from "./FormasDePagamentos"
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -40,7 +40,6 @@ const PaginaCarrinho = () => {
     console.log(body)
     axios.post(`${BASE_URL}/restaurants/${currentRestaurant.id}/order`, body, headers)
       .then((res) => {
-        console.log(res)
         clear()        
       })
       .catch((err) => {
@@ -82,14 +81,14 @@ const PaginaCarrinho = () => {
         <div key={produto.id} >
           <ImgContainer src={produto.photoUrl} />
         </div>
-        <div>
+        <InfoContainer>
           <strong>{produto.name}</strong>
-          <p>{produto.description}</p>
+          <Content>{produto.description}</Content>
           <p> R$ {produto.price}</p>
           <p>Quantidade: {produto.quantity}</p>
-          <StyledButton color='primary' variant="contained" onClick={() => removerProduto(produto)}>Remover</StyledButton>
-          <p>Frete R$ {currentRestaurant.shipping}</p>
-        </div>
+          <ButtonRemove color='primary' variant="contained" onClick={() => removerProduto(produto)}>Remover</ButtonRemove>
+          
+        </InfoContainer>
 
       </CardContainer>
     )
@@ -101,6 +100,7 @@ const PaginaCarrinho = () => {
       <h2>Carrinho de Compras</h2>
       <CardEnderecos />
       {CarrinhoDeCompras.length > 0 ? CarrinhoDeCompras: <ShoppingCartOutlinedIcon/>}
+      <p>Frete R$ {currentRestaurant.shipping}</p>
       <p>SubTotal: R$ {total}</p>
       <PagamentosContainer>
         <FormasDePagamentos />
