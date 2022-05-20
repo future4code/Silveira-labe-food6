@@ -12,7 +12,6 @@ import useForm from '../../hooks/useForm';
 
 const PaginaCarrinho = (props) => {
   useProtectPage();
-
   const [pedido, setPedido] = useState()
   const { productAdd, setProductAdd } = useContext(GlobalStateContext);
   const { currentRestaurant, setCurrentRestaurant } = useContext(GlobalStateContext);
@@ -40,7 +39,6 @@ const PaginaCarrinho = (props) => {
           <button>Remover</button>
           <p>{total}</p>
         </div>
-
 
       </CardContainer>
     )
