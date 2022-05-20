@@ -33,7 +33,7 @@ const PaginaDetalhes = () => {
         <Typography align='center'>
           <h2>{comida.name}</h2>
           <p>{comida.description}</p>
-          <p>R$ {comida.price}0</p>
+          <p>R$ {comida.price}</p>
         </Typography>
         <StyledButton color='primary' variant="contained" onClick={() => adicionarProduto(comida)} >Adicionar</StyledButton>
 
