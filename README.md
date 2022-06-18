@@ -1,6 +1,6 @@
 # Silveira-labe-food6
 
-LABEFOOD Grupo FOURFOODB
+LABEFOOD 
 O que funciona
   - O usuário é capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço
   - Caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário recebe uma mensagem de erro clara  
